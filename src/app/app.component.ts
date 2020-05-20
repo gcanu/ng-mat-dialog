@@ -1,4 +1,6 @@
 import { Component, VERSION } from '@angular/core';
+import {ConfirmComponent} from './confirm/confirm.component'
+import {MatDialog, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'my-app',
@@ -6,5 +8,20 @@ import { Component, VERSION } from '@angular/core';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  name = 'Angular ' + VERSION.major;
+  dialogRef: MatDialogRef<ConfirmComponent>
+
+  constructor(
+    private dialog: MatDialog
+  ) {}
+
+  open(options) {
+    this.dialogRef = this.dialog.open(ConfirmComponent, {    
+         data: {
+           title: options.title,
+           message: options.message,
+           cancelText: options.cancelText,
+           confirmText: options.confirmText
+         }
+    }); 
+  }
 }
