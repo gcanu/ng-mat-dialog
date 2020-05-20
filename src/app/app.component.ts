@@ -1,6 +1,6 @@
 import { Component, VERSION } from '@angular/core';
-import {ConfirmComponent} from './confirm/confirm.component'
-import {MatDialog, MatDialogRef} from '@angular/material';
+import { MatDialogRef, MatDialog } from '@angular/material/dialog';
+import { ConfirmComponent } from './confirm/confirm.component';
 
 @Component({
   selector: 'my-app',
